@@ -4,6 +4,8 @@ services:
     restart: unless-stopped
     volumes:
       - ./app-data:/app-data
+    networks:
+      - caddy
     labels:
       caddy: wiki.rockag.net
       caddy.reverse_proxy: "{{upstreams 80}}"

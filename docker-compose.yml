@@ -6,10 +6,13 @@ services:
       - ./app-data:/app-data
     networks:
       - caddy
+      - smtp
     labels:
       caddy: wiki.rockag.net
       caddy.reverse_proxy: "{{upstreams 80}}"
 
 networks:
   caddy:
+    external: true
+  smtp:
     external: true
